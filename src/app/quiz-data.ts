@@ -185,7 +185,7 @@ export const profiles: Profile[] = [
     minScore: 0,
     maxScore: 3,
     description:
-      "Alarm, alarm! Jouw ruggengraat heeft de stevigheid van een vla die drie dagen in de zon heeft liggen zweten. Je zegt overal “ja hoor!” tegen, buigt mee met elke zuchtje wind en je eigen grenzen zijn voor jou blijkbaar net zo'n vage suggestie als “met mate drinken”. Knap eigenlijk, dat je nog rechtop aan tafel kan zitten zonder in je bord te glijden. 🫠 Doe eens gek: zeg vandaag één keer hardop “nee” — desnoods tegen de spiegel.",
+      "Alarm, alarm! Jouw ruggegraat heeft de stevigheid van een vla die drie dagen in de zon heeft liggen zweten. Je zegt overal “ja hoor!” tegen, buigt mee met elke zuchtje wind en je eigen grenzen zijn voor jou blijkbaar net zo'n vage suggestie als “met mate drinken”. Knap eigenlijk, dat je nog rechtop aan tafel kan zitten zonder in je bord te glijden. 🫠 Doe eens gek: zeg vandaag één keer hardop “nee” — desnoods tegen de spiegel.",
   },
   {
     name: "De Dropveter",
@@ -201,10 +201,10 @@ export const profiles: Profile[] = [
     minScore: 8,
     maxScore: 12,
     description:
-      "Recht voor z'n raap, een beetje bot, maar over het algemeen redelijk. Jij zegt nee als het moet, ja als het kan, en durft prima tegen je schoonmoeder in te gaan over de stamppot — al schrik je er zelf een beetje van. Geen heldhaftige ruggengraat, maar wel eentje waar de rest van de borrel gewoon normaal mee kan omgaan. Fiets recht, blik strak vooruit. 🚲",
+      "Recht voor z'n raap, een beetje bot, maar over het algemeen redelijk. Jij zegt nee als het moet, ja als het kan, en durft prima tegen je schoonmoeder in te gaan over de stamppot — al schrik je er zelf een beetje van. Geen heldhaftige ruggegraat, maar wel eentje waar de rest van de borrel gewoon normaal mee kan omgaan. Fiets recht, blik strak vooruit. 🚲",
   },
   {
-    name: "IJzeren Ruggengraat",
+    name: "IJzeren Ruggegraat",
     emoji: "🤖",
     minScore: 13,
     maxScore: 16,
@@ -217,7 +217,7 @@ export const profiles: Profile[] = [
     minScore: 17,
     maxScore: 18,
     description:
-      "Er is geen kroeg, collega, schoonmoeder, oom Henk of stripper op aarde die jou nog ook maar íets uit je handen laat praten. Jouw ruggengraat is gegoten in gewapend beton met een dun laagje titanium eroverheen, voor de show. Indrukwekkend, maar wel zo dat de familie-app inmiddels alleen nog memes stuurt en niemand meer durft te vragen of je 'misschien een keertje' iets wil. Legendarisch. Eenzaam op de troon, maar legendarisch. 👑🪨",
+      "Er is geen kroeg, collega, schoonmoeder, oom Henk of stripper op aarde die jou nog ook maar íets uit je handen laat praten. Jouw ruggegraat is gegoten in gewapend beton met een dun laagje titanium eroverheen, voor de show. Indrukwekkend, maar wel zo dat de familie-app inmiddels alleen nog memes stuurt en niemand meer durft te vragen of je 'misschien een keertje' iets wil. Legendarisch. Eenzaam op de troon, maar legendarisch. 👑🪨",
   },
 ];
 

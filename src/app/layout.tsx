@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ruggengraattest — hoe stevig is jouw ruggengraat écht?",
+  title: "Ruggegraattest — hoe stevig is jouw ruggegraat écht?",
   description:
-    "Doe de wetenschappelijk klinkende maar volledig onzinnige Ruggengraattest en ontdek of jij een Blubberpudding of een Betonnen Bunker bent.",
+    "Doe de wetenschappelijk klinkende maar volledig onzinnige Ruggegraattest en ontdek of jij een Blubberpudding of een Betonnen Bunker bent.",
 };
 
 export default function RootLayout({

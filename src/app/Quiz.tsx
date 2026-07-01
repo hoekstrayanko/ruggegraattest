@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { questions, maxScore, getProfile } from "./quiz-data";
 import ShareButton from "./ShareButton";
 import Confetti from "./Confetti";
+import StatsBar, { type Stats } from "./StatsBar";
 
 type Stage = "intro" | "question" | "result";
 
@@ -14,12 +15,34 @@ export default function Quiz() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [reaction, setReaction] = useState<string | null>(null);
+  const [stats, setStats] = useState<Stats>({ visits: null, completions: null });
+  const hasTrackedVisit = useRef(false);
+  const hasTrackedCompletion = useRef(false);
+
+  useEffect(() => {
+    if (hasTrackedVisit.current) return;
+    hasTrackedVisit.current = true;
+    fetch("/api/visit", { method: "POST" })
+      .then((res) => res.json())
+      .then((data: Stats) => setStats(data))
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (stage !== "result" || hasTrackedCompletion.current) return;
+    hasTrackedCompletion.current = true;
+    fetch("/api/complete", { method: "POST" })
+      .then((res) => res.json())
+      .then((data: Stats) => setStats(data))
+      .catch(() => {});
+  }, [stage]);
 
   function start() {
     setStage("question");
     setQuestionIndex(0);
     setScore(0);
     setReaction(null);
+    hasTrackedCompletion.current = false;
   }
 
   function answer(points: number, reactionText: string) {
@@ -48,12 +71,12 @@ export default function Quiz() {
       <div className="animate-pop-in flex max-w-xl flex-col items-center gap-6 rounded-3xl bg-white/95 p-10 text-center shadow-2xl">
         <span className="text-6xl">🦴</span>
         <h1 className="text-4xl font-black tracking-tight text-purple-900">
-          De Ruggengraattest
+          De Ruggegraattest
         </h1>
         <p className="text-lg text-zinc-600">
           Een <span className="font-semibold">wetenschappelijk klinkend</span>{" "}
           maar volledig onwetenschappelijk onderzoek naar de stevigheid van uw
-          ruggengraat. Zes pijnlijk herkenbare scenario&apos;s, een vleugje
+          ruggegraat. Zes pijnlijk herkenbare scenario&apos;s, een vleugje
           schunnigheid, en aan het eind een meedogenloos eindoordeel over wie
           u werkelijk bent. 😏
         </p>
@@ -66,6 +89,7 @@ export default function Quiz() {
         <p className="text-sm text-zinc-400">
           Duurt ongeveer 90 seconden. Schaamte niet inbegrepen.
         </p>
+        <StatsBar stats={stats} />
       </div>
     );
   }
@@ -124,7 +148,7 @@ export default function Quiz() {
     <div className="animate-pop-in flex w-full max-w-xl flex-col items-center gap-5 rounded-3xl bg-white/95 p-10 text-center shadow-2xl">
       {isExtreme && <Confetti />}
       <p className="text-sm font-semibold uppercase tracking-wide text-pink-600">
-        Jouw score: {score} / {maxScore} ruggengraatpunten
+        Jouw score: {score} / {maxScore} ruggegraatpunten
       </p>
       <span className="animate-wiggle text-7xl">{profile.emoji}</span>
       <h2 className="text-3xl font-black tracking-tight text-purple-900">
@@ -142,6 +166,7 @@ export default function Quiz() {
           Nog een keer testen
         </button>
       </div>
+      <StatsBar stats={stats} />
     </div>
   );
 }

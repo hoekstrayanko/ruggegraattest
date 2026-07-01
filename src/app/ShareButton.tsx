@@ -11,7 +11,7 @@ export default function ShareButton({
 }) {
   const [copied, setCopied] = useState(false);
 
-  const shareText = `Mijn ruggengraat scoort: ${emoji} ${profileName}! Doe de Ruggengraattest ook op https://ruggegraattest.nl`;
+  const shareText = `Mijn ruggegraat scoort: ${emoji} ${profileName}! Doe de Ruggegraattest ook op https://ruggegraattest.nl`;
 
   async function handleShare() {
     if (typeof navigator !== "undefined" && "share" in navigator) {

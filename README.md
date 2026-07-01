@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ruggengraattest
 
-## Getting Started
+Een wetenschappelijk klinkende maar volledig onzinnige test die meet hoe stevig
+jouw ruggengraat is aan de hand van 6 herkenbare sociale scenario's. Aan het
+eind krijg je een van de 5 eindprofielen, van *De Blubberpudding* tot
+*De Betonnen Bunker*.
 
-First, run the development server:
+## Lokaal draaien
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Inhoud aanpassen
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Alle vragen, antwoorden en eindprofielen staan in
+[`src/app/quiz-data.ts`](src/app/quiz-data.ts). Punten per antwoord bepalen de
+score, `getProfile()` kiest het bijbehorende profiel op basis van het
+`minScore`/`maxScore`-bereik.
 
-## Learn More
+## Domein (TransIP) + hosting (Vercel) koppelen
 
-To learn more about Next.js, take a look at the following resources:
+1. **Push deze code naar een Git-repo** (GitHub/GitLab/Bitbucket) — Vercel deployt
+   vanuit een repo.
+2. Ga naar [vercel.com/new](https://vercel.com/new), importeer de repo en deploy
+   (geen extra configuratie nodig, Vercel herkent Next.js automatisch).
+3. In het Vercel-project: **Settings → Domains** → voeg `ruggegraattest.nl` toe
+   (en eventueel `www.ruggegraattest.nl`).
+4. Vercel toont de DNS-records die nodig zijn (meestal een `A`-record naar
+   `76.76.21.21` en/of een `CNAME` voor `www` naar `cname.vercel-dns.com`).
+5. Log in bij **TransIP → Domeinen → ruggegraattest.nl → DNS-instellingen** en
+   voeg die records toe (of vervang de bestaande A/CNAME-records).
+6. Wacht op DNS-propagatie (meestal binnen een uur, kan tot 24u duren) — Vercel
+   geeft automatisch een geldig SSL-certificaat uit zodra de DNS klopt.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Later uit te breiden
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Zwaardere animaties bij het resultaatscherm (bv. met Framer Motion) —
+  `Confetti.tsx` en de `animate-pop-in`/`animate-wiggle` classes in
+  `globals.css` zijn een lichte basis om op verder te bouwen.
+- Custom gedeelde afbeelding bij het delen van een resultaat (nu is delen een
+  simpele tekst + link via `ShareButton.tsx`).

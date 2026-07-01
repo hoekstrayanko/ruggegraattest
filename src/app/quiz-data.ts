@@ -176,6 +176,7 @@ export type Profile = {
   minScore: number;
   maxScore: number;
   description: string;
+  videoSrc?: string;
 };
 
 export const profiles: Profile[] = [
@@ -186,6 +187,7 @@ export const profiles: Profile[] = [
     maxScore: 3,
     description:
       "Alarm, alarm! Jouw ruggegraat heeft de stevigheid van een vla die drie dagen in de zon heeft liggen zweten. Je zegt overal “ja hoor!” tegen, buigt mee met elke zuchtje wind en je eigen grenzen zijn voor jou blijkbaar net zo'n vage suggestie als “met mate drinken”. Knap eigenlijk, dat je nog rechtop aan tafel kan zitten zonder in je bord te glijden. 🫠 Doe eens gek: zeg vandaag één keer hardop “nee” — desnoods tegen de spiegel.",
+    videoSrc: "/ruggegraat-breekt.mp4",
   },
   {
     name: "De Dropveter",

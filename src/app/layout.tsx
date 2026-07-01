@@ -12,10 +12,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Ruggegraattest — hoe stevig is jouw ruggegraat écht?";
+const description =
+  "Doe de wetenschappelijk klinkende maar volledig onzinnige Ruggegraattest en ontdek of jij een Blubberpudding of een Betonnen Bunker bent.";
+
 export const metadata: Metadata = {
-  title: "Ruggegraattest — hoe stevig is jouw ruggegraat écht?",
-  description:
-    "Doe de wetenschappelijk klinkende maar volledig onzinnige Ruggegraattest en ontdek of jij een Blubberpudding of een Betonnen Bunker bent.",
+  metadataBase: new URL("https://ruggegraattest.nl"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "https://ruggegraattest.nl",
+    siteName: "Ruggegraattest",
+    locale: "nl_NL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({

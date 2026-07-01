@@ -157,6 +157,21 @@ export default function Quiz() {
       <p className="text-lg leading-relaxed text-zinc-600">
         {profile.description}
       </p>
+      {profile.videoSrc && (
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-xs font-bold uppercase tracking-wide text-zinc-400">
+            🎥 Exclusief beeldmateriaal
+          </p>
+          <video
+            src={profile.videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full max-w-xs rounded-2xl shadow-lg"
+          />
+        </div>
+      )}
       <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
         <ShareButton profileName={profile.name} emoji={profile.emoji} />
         <button

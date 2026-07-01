@@ -17,13 +17,15 @@ const description =
   "Doe de wetenschappelijk klinkende maar volledig onzinnige Ruggegraattest en ontdek of jij een Blubberpudding of een Betonnen Bunker bent.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ruggegraattest.nl"),
+  // www, niet het kale domein: Vercel redirect ruggegraattest.nl -> www.ruggegraattest.nl,
+  // en linkpreview-crawlers (WhatsApp) volgen die redirect niet bij het ophalen van og:image.
+  metadataBase: new URL("https://www.ruggegraattest.nl"),
   title,
   description,
   openGraph: {
     title,
     description,
-    url: "https://ruggegraattest.nl",
+    url: "https://www.ruggegraattest.nl",
     siteName: "Ruggegraattest",
     locale: "nl_NL",
     type: "website",
